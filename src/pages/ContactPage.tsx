@@ -30,9 +30,9 @@ const ContactPage = () => {
   };
   
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Hero Banner */}
-      <div className="bg-gradient-to-r from-shop-primary/10 to-blue-100 py-16">
+      <div className="bg-gradient-to-r from-shop-card/30 to-shop-card/10 py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-shop-text mb-4">Contact Us</h1>
           <p className="text-lg text-shop-light-text max-w-2xl mx-auto">
@@ -141,7 +141,7 @@ const ContactPage = () => {
             {/* Contact Form */}
             <div>
               <h2 className="text-2xl font-semibold mb-6 text-shop-text">Send a Message</h2>
-              <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="bg-shop-card rounded-lg shadow-md p-6">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-1 text-shop-text">
@@ -154,7 +154,7 @@ const ContactPage = () => {
                       onChange={(e) => setName(e.target.value)}
                       required
                       placeholder="John Doe"
-                      className="w-full"
+                      className="w-full bg-shop-secondary-bg border-shop-card text-shop-text"
                       disabled={isLoading}
                     />
                   </div>
@@ -170,7 +170,7 @@ const ContactPage = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       placeholder="your@email.com"
-                      className="w-full"
+                      className="w-full bg-shop-secondary-bg border-shop-card text-shop-text"
                       disabled={isLoading}
                     />
                   </div>
@@ -186,7 +186,7 @@ const ContactPage = () => {
                       onChange={(e) => setSubject(e.target.value)}
                       required
                       placeholder="How can we help you?"
-                      className="w-full"
+                      className="w-full bg-shop-secondary-bg border-shop-card text-shop-text"
                       disabled={isLoading}
                     />
                   </div>
@@ -201,14 +201,14 @@ const ContactPage = () => {
                       onChange={(e) => setMessage(e.target.value)}
                       required
                       placeholder="Write your message here..."
-                      className="w-full min-h-[150px]"
+                      className="w-full min-h-[150px] bg-shop-secondary-bg border-shop-card text-shop-text"
                       disabled={isLoading}
                     />
                   </div>
                   
                   <Button
                     type="submit"
-                    className="w-full bg-shop-primary hover:bg-shop-primary/90"
+                    className="w-full bg-shop-button hover:bg-shop-button/80 text-white"
                     disabled={isLoading}
                   >
                     {isLoading ? 'Sending...' : 'Send Message'}
@@ -221,7 +221,7 @@ const ContactPage = () => {
           {/* Map */}
           <div className="mt-16">
             <h2 className="text-2xl font-semibold mb-6 text-shop-text">Our Location</h2>
-            <div className="rounded-lg overflow-hidden h-96 bg-gray-300 flex items-center justify-center">
+            <div className="rounded-lg overflow-hidden h-96 bg-shop-card flex items-center justify-center">
               <p className="text-shop-light-text">Map placeholder - In a real application, embed a Google Map or similar here</p>
             </div>
           </div>

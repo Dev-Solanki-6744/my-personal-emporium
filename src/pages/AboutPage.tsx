@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-shop-primary/10 to-blue-100 py-20">
+      <div className="bg-gradient-to-r from-shop-card/30 to-shop-card/10 py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-shop-text mb-6">About YourStore</h1>
           <p className="text-xl text-shop-light-text max-w-3xl mx-auto">
@@ -18,13 +18,13 @@ const AboutPage = () => {
       </div>
       
       {/* Our Story */}
-      <section className="py-16">
+      <section className="py-16 bg-black">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-10 text-shop-text">Our Story</h2>
             
             <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="md:w-1/2">
+              <div className="md:w-1/2 bg-black">
                 <img 
                   src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                   alt="Our Store" 
@@ -48,20 +48,20 @@ const AboutPage = () => {
       </section>
       
       {/* Our Mission */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-shop-card/20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-10 text-shop-text">Our Mission</h2>
             
-            <div className="bg-white p-8 rounded-lg shadow-md">
+            <div className="bg-shop-card p-8 rounded-lg shadow-md">
               <p className="text-xl text-center text-shop-text italic">
                 "To provide high-quality products that enhance our customers' lives, delivered with exceptional service and supported by a commitment to sustainability and ethical business practices."
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-shop-card p-6 rounded-lg shadow-md">
+                <div className="w-12 h-12 bg-shop-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-6 h-6 text-shop-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
@@ -72,8 +72,8 @@ const AboutPage = () => {
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-shop-card p-6 rounded-lg shadow-md">
+                <div className="w-12 h-12 bg-shop-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-6 h-6 text-shop-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                   </svg>
@@ -84,8 +84,8 @@ const AboutPage = () => {
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-shop-card p-6 rounded-lg shadow-md">
+                <div className="w-12 h-12 bg-shop-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-6 h-6 text-shop-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
@@ -101,14 +101,14 @@ const AboutPage = () => {
       </section>
       
       {/* Our Team */}
-      <section className="py-16">
+      <section className="py-16 bg-black">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-10 text-shop-text">Our Leadership Team</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
+                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 bg-black">
                   <img 
                     src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
                     alt="CEO" 
@@ -123,7 +123,7 @@ const AboutPage = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
+                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 bg-black">
                   <img 
                     src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
                     alt="COO" 
@@ -138,7 +138,7 @@ const AboutPage = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
+                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 bg-black">
                   <img 
                     src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
                     alt="CTO" 
@@ -164,7 +164,7 @@ const AboutPage = () => {
             Browse our catalog of quality products and experience our exceptional service firsthand.
           </p>
           <Link to="/products">
-            <Button className="bg-white text-shop-primary hover:bg-gray-100 px-8 py-3 text-lg">
+            <Button className="bg-shop-button text-white hover:bg-shop-button/80 px-8 py-3 text-lg">
               Shop Now
             </Button>
           </Link>
