@@ -25,9 +25,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+    <div className="bg-shop-card rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
       <Link to={`/product/${product.id}`} className="block">
-        <div className="relative h-56 overflow-hidden">
+        <div className="relative h-56 overflow-hidden bg-black">
           <img 
             src={product.image} 
             alt={product.name} 
@@ -39,7 +39,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
           )}
           {product.featured && (
-            <span className="absolute top-2 left-2 bg-shop-primary text-white text-xs px-2 py-1 rounded">Featured</span>
+            <span className="absolute top-2 left-2 bg-shop-primary text-black text-xs px-2 py-1 rounded">Featured</span>
           )}
         </div>
         
