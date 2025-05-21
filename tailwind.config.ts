@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,12 +63,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				shop: {
-					'primary': '#3182ce',
-					'accent': '#f56565',
-					'background': '#f7fafc',
-					'card': '#ffffff',
-					'text': '#2d3748',
-					'light-text': '#718096'
+					'primary': '#4ECCA3', // Mint green from your palette
+					'accent': '#EEEEEE',  // Light gray from your palette
+					'background': '#232931', // Dark blue/black from your palette
+					'secondary-bg': '#393E46', // Dark gray from your palette
+					'card': '#393E46',    // Dark gray from your palette
+					'text': '#EEEEEE',    // Light gray from your palette
+					'light-text': '#EEEEEE' // Light gray from your palette
 				}
 			},
 			borderRadius: {

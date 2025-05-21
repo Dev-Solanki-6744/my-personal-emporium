@@ -11,8 +11,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   if (products.length === 0) {
     return (
       <div className="py-20 text-center">
-        <h3 className="text-xl font-medium text-gray-600">No products found</h3>
-        <p className="mt-2 text-gray-500">Try changing your filters or search term</p>
+        <h3 className="text-xl font-medium text-shop-text">No products found</h3>
+        <p className="mt-2 text-shop-accent opacity-80">Try changing your filters or search term</p>
       </div>
     );
   }
