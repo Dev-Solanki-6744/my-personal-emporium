@@ -44,7 +44,7 @@ const CartPage = () => {
   // If cart is empty
   if (cart.items.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 bg-shop-background">
         <div className="max-w-lg mx-auto text-center">
           <div className="mb-6">
             <ShoppingCart className="h-16 w-16 mx-auto text-shop-light-text" />
@@ -62,7 +62,7 @@ const CartPage = () => {
   }
   
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-shop-background">
       <div className="mb-6">
         <Link to="/products" className="inline-flex items-center text-shop-primary hover:underline">
           <ChevronLeft className="h-4 w-4 mr-1" />
@@ -75,9 +75,9 @@ const CartPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Cart Items */}
         <div className="md:col-span-2">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="bg-shop-card rounded-lg shadow-lg overflow-hidden border border-shop-primary/20">
             <div className="p-6">
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
+              <div className="flex justify-between items-center pb-4 border-b border-gray-700">
                 <h2 className="text-lg font-semibold text-shop-text">Cart Items ({cart.totalItems})</h2>
                 <button 
                   onClick={clearCart} 
@@ -88,10 +88,10 @@ const CartPage = () => {
                 </button>
               </div>
               
-              <ul className="divide-y divide-gray-200">
+              <ul className="divide-y divide-gray-700">
                 {cart.items.map(item => (
                   <li key={item.id} className="py-6 flex">
-                    <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                    <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-700 bg-black">
                       <img
                         src={item.image}
                         alt={item.name}
@@ -112,17 +112,17 @@ const CartPage = () => {
                       </div>
                       
                       <div className="flex flex-1 items-end justify-between text-sm">
-                        <div className="flex items-center border border-gray-300 rounded">
+                        <div className="flex items-center border border-gray-700 rounded bg-gray-800">
                           <button
                             onClick={() => handleDecrementQuantity(item.id)}
-                            className="p-1 text-shop-primary hover:bg-gray-100 focus:outline-none"
+                            className="p-1 text-shop-primary hover:bg-gray-700 focus:outline-none"
                           >
                             <Minus className="h-4 w-4" />
                           </button>
-                          <span className="px-3 py-1 border-l border-r border-gray-300">{item.quantity}</span>
+                          <span className="px-3 py-1 border-l border-r border-gray-700">{item.quantity}</span>
                           <button
                             onClick={() => handleIncrementQuantity(item.id)}
-                            className="p-1 text-shop-primary hover:bg-gray-100 focus:outline-none"
+                            className="p-1 text-shop-primary hover:bg-gray-700 focus:outline-none"
                           >
                             <Plus className="h-4 w-4" />
                           </button>
@@ -147,7 +147,7 @@ const CartPage = () => {
         
         {/* Order Summary */}
         <div className="md:col-span-1">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="bg-shop-card rounded-lg shadow-lg overflow-hidden border border-shop-primary/20">
             <div className="p-6">
               <h2 className="text-lg font-semibold mb-4 text-shop-text">Order Summary</h2>
               
@@ -164,7 +164,7 @@ const CartPage = () => {
                   </span>
                 </div>
                 
-                <div className="border-t border-gray-200 pt-4">
+                <div className="border-t border-gray-700 pt-4">
                   <div className="flex justify-between">
                     <span className="text-lg font-semibold text-shop-text">Total</span>
                     <span className="text-lg font-semibold text-shop-text">
@@ -193,10 +193,10 @@ const CartPage = () => {
                 <div className="mt-6">
                   <p className="text-xs text-shop-light-text mb-2 text-center">We accept</p>
                   <div className="flex justify-center space-x-2">
-                    <div className="w-10 h-6 bg-gray-200 rounded"></div>
-                    <div className="w-10 h-6 bg-gray-200 rounded"></div>
-                    <div className="w-10 h-6 bg-gray-200 rounded"></div>
-                    <div className="w-10 h-6 bg-gray-200 rounded"></div>
+                    <div className="w-10 h-6 bg-gray-800 rounded border border-gray-700"></div>
+                    <div className="w-10 h-6 bg-gray-800 rounded border border-gray-700"></div>
+                    <div className="w-10 h-6 bg-gray-800 rounded border border-gray-700"></div>
+                    <div className="w-10 h-6 bg-gray-800 rounded border border-gray-700"></div>
                   </div>
                 </div>
               </div>
