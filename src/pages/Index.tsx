@@ -4,7 +4,7 @@ import HomePage from './HomePage';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-shop-background text-shop-text">
+    <div className="min-h-screen bg-black text-shop-text">
       <HomePage />
     </div>
   );

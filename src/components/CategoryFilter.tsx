@@ -21,7 +21,9 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
           variant={selectedCategory === null ? "default" : "outline"}
           size="sm"
           onClick={() => onSelectCategory(null)}
-          className={selectedCategory === null ? "bg-shop-primary hover:bg-shop-primary/90" : ""}
+          className={selectedCategory === null 
+            ? "bg-shop-primary hover:bg-shop-primary/90" 
+            : "bg-shop-button hover:bg-shop-button/80 text-shop-text"}
         >
           All Products
         </Button>
@@ -32,7 +34,9 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
             variant={selectedCategory === category ? "default" : "outline"}
             size="sm"
             onClick={() => onSelectCategory(category)}
-            className={selectedCategory === category ? "bg-shop-primary hover:bg-shop-primary/90" : ""}
+            className={selectedCategory === category 
+              ? "bg-shop-primary hover:bg-shop-primary/90" 
+              : "bg-shop-button hover:bg-shop-button/80 text-shop-text"}
           >
             {category}
           </Button>

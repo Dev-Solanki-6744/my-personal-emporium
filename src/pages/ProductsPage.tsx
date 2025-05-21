@@ -43,7 +43,7 @@ const ProductsPage = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-shop-background">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-shop-text">All Products</h1>
         <p className="text-shop-light-text mt-2">Browse our collection of high-quality products</p>
@@ -52,7 +52,7 @@ const ProductsPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Sidebar / Filters */}
         <div className="md:col-span-1">
-          <div className="bg-white p-6 rounded-lg shadow">
+          <div className="bg-shop-card p-6 rounded-lg shadow">
             <h2 className="text-xl font-semibold mb-6 text-shop-text">Filters</h2>
             
             <div className="mb-6">
@@ -65,7 +65,7 @@ const ProductsPage = () => {
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full"
+                className="w-full bg-shop-secondary-bg text-shop-text"
               />
             </div>
             
@@ -75,7 +75,7 @@ const ProductsPage = () => {
               onSelectCategory={handleCategorySelect}
             />
             
-            <div className="pt-6 border-t border-gray-200">
+            <div className="pt-6 border-t border-gray-700">
               <h3 className="text-lg font-semibold mb-3 text-shop-text">Price Range</h3>
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center">
@@ -101,7 +101,7 @@ const ProductsPage = () => {
               </div>
             </div>
             
-            <div className="pt-6 border-t border-gray-200">
+            <div className="pt-6 border-t border-gray-700">
               <h3 className="text-lg font-semibold mb-3 text-shop-text">Availability</h3>
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center">
@@ -115,7 +115,7 @@ const ProductsPage = () => {
         
         {/* Product Grid */}
         <div className="md:col-span-3">
-          <div className="bg-white p-6 rounded-lg shadow mb-6">
+          <div className="bg-shop-card p-6 rounded-lg shadow mb-6">
             <div className="flex justify-between items-center">
               <div>
                 <span className="text-shop-light-text">Showing {filteredProducts.length} products</span>
@@ -124,7 +124,7 @@ const ProductsPage = () => {
                 <label htmlFor="sort" className="text-shop-text mr-2">Sort by:</label>
                 <select 
                   id="sort" 
-                  className="border border-gray-300 rounded px-2 py-1 text-shop-text focus:outline-none focus:ring-1 focus:ring-shop-primary"
+                  className="border border-gray-700 bg-shop-secondary-bg rounded px-2 py-1 text-shop-text focus:outline-none focus:ring-1 focus:ring-shop-primary"
                   defaultValue="featured"
                 >
                   <option value="featured">Featured</option>

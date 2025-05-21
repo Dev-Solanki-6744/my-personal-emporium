@@ -1,30 +1,29 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 220 25% 16%; /* #232931 */
+    --background: 0 0% 0%; /* #000000 (Black) */
     --foreground: 0 0% 93%; /* #EEEEEE */
 
     --card: 223 11% 25%; /* #393E46 */
     --card-foreground: 0 0% 93%; /* #EEEEEE */
 
-    --popover: 220 25% 16%; /* #232931 */
+    --popover: 0 0% 0%; /* #000000 (Black) */
     --popover-foreground: 0 0% 93%; /* #EEEEEE */
 
     --primary: 163 59% 55%; /* #4ECCA3 */
-    --primary-foreground: 220 25% 16%; /* #232931 */
+    --primary-foreground: 0 0% 0%; /* #000000 */
 
-    --secondary: 223 11% 25%; /* #393E46 */
+    --secondary: 0 0% 20%; /* #333333 (Dark Gray) */
     --secondary-foreground: 0 0% 93%; /* #EEEEEE */
 
     --muted: 223 11% 25%; /* #393E46 */
     --muted-foreground: 0 0% 83%;
 
     --accent: 163 59% 55%; /* #4ECCA3 */
-    --accent-foreground: 220 25% 16%; /* #232931 */
+    --accent-foreground: 0 0% 0%; /* #000000 */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 93%; /* #EEEEEE */
@@ -35,10 +34,10 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 220 25% 16%; /* #232931 */
+    --sidebar-background: 0 0% 0%; /* #000000 (Black) */
     --sidebar-foreground: 0 0% 93%; /* #EEEEEE */
     --sidebar-primary: 163 59% 55%; /* #4ECCA3 */
-    --sidebar-primary-foreground: 220 25% 16%; /* #232931 */
+    --sidebar-primary-foreground: 0 0% 0%; /* #000000 */
     --sidebar-accent: 223 11% 25%; /* #393E46 */
     --sidebar-accent-foreground: 0 0% 93%; /* #EEEEEE */
     --sidebar-border: 223 11% 30%; /* Slightly lighter than #393E46 */
@@ -79,5 +78,3 @@
   padding: 2rem;
   text-align: center;
 }
-
-/* ... keep existing code */

@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -65,11 +66,12 @@ export default {
 				shop: {
 					'primary': '#4ECCA3', // Mint green from your palette
 					'accent': '#EEEEEE',  // Light gray from your palette
-					'background': '#232931', // Dark blue/black from your palette
-					'secondary-bg': '#393E46', // Dark gray from your palette
+					'background': '#000000', // Black
+					'secondary-bg': '#333333', // Dark gray
 					'card': '#393E46',    // Dark gray from your palette
 					'text': '#EEEEEE',    // Light gray from your palette
-					'light-text': '#EEEEEE' // Light gray from your palette
+					'light-text': '#EEEEEE', // Light gray from your palette
+					'button': '#333333'    // Gray for buttons
 				}
 			},
 			borderRadius: {
