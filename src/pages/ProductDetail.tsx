@@ -57,7 +57,7 @@ const ProductDetail = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-shop-background">
       <div className="mb-6">
         <Link to="/products" className="inline-flex items-center text-shop-primary hover:underline">
           <ChevronLeft className="h-4 w-4 mr-1" />
@@ -65,7 +65,7 @@ const ProductDetail = () => {
         </Link>
       </div>
       
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="bg-shop-card rounded-lg shadow-lg overflow-hidden border border-shop-primary/20">
         <div className="md:flex">
           {/* Product Image */}
           <div className="md:w-1/2">
@@ -84,28 +84,28 @@ const ProductDetail = () => {
               <div className="flex justify-between items-start">
                 <div>
                   <h1 className="text-2xl md:text-3xl font-bold text-shop-text">{product.name}</h1>
-                  <span className="inline-block mt-1 px-2 py-1 text-xs bg-gray-100 rounded-full text-shop-light-text">
+                  <span className="inline-block mt-1 px-2 py-1 text-xs bg-shop-secondary-bg rounded-full text-shop-light-text">
                     {product.category}
                   </span>
                 </div>
-                <div className="flex items-center bg-amber-50 px-2 py-1 rounded">
+                <div className="flex items-center bg-amber-900/30 px-2 py-1 rounded">
                   <Star className="h-4 w-4 text-amber-500 fill-amber-500 mr-1" />
-                  <span className="font-semibold">{product.rating}</span>
+                  <span className="font-semibold text-amber-400">{product.rating}</span>
                 </div>
               </div>
               
               <div className="mt-6">
                 <span className="text-3xl font-bold text-shop-primary">${product.price.toFixed(2)}</span>
                 {product.inStock ? (
-                  <span className="ml-3 text-sm font-medium text-green-600">In Stock</span>
+                  <span className="ml-3 text-sm font-medium text-green-500">In Stock</span>
                 ) : (
-                  <span className="ml-3 text-sm font-medium text-red-600">Out of Stock</span>
+                  <span className="ml-3 text-sm font-medium text-red-500">Out of Stock</span>
                 )}
               </div>
               
               <div className="mt-6">
                 <h2 className="font-semibold text-shop-text">Description</h2>
-                <p className="mt-2 text-shop-light-text">{product.description}</p>
+                <p className="mt-2 text-shop-light-text opacity-80">{product.description}</p>
               </div>
             </div>
             
@@ -114,18 +114,18 @@ const ProductDetail = () => {
             {product.inStock && (
               <>
                 <div className="mt-8 flex items-center">
-                  <span className="mr-4 font-medium">Quantity:</span>
-                  <div className="flex items-center border border-gray-300 rounded">
+                  <span className="mr-4 font-medium text-shop-text">Quantity:</span>
+                  <div className="flex items-center border border-shop-primary/30 rounded">
                     <button
                       onClick={decrementQuantity}
-                      className="px-3 py-1 text-shop-primary hover:bg-gray-100 focus:outline-none"
+                      className="px-3 py-1 text-shop-primary hover:bg-shop-primary/10 focus:outline-none"
                     >
                       -
                     </button>
-                    <span className="px-4 py-1 border-l border-r border-gray-300">{quantity}</span>
+                    <span className="px-4 py-1 border-l border-r border-shop-primary/30">{quantity}</span>
                     <button
                       onClick={incrementQuantity}
-                      className="px-3 py-1 text-shop-primary hover:bg-gray-100 focus:outline-none"
+                      className="px-3 py-1 text-shop-primary hover:bg-shop-primary/10 focus:outline-none"
                     >
                       +
                     </button>
@@ -135,7 +135,7 @@ const ProductDetail = () => {
                 <div className="mt-6">
                   <Button 
                     onClick={handleAddToCart} 
-                    className="w-full flex items-center justify-center bg-shop-primary hover:bg-shop-primary/90"
+                    className="w-full flex items-center justify-center bg-shop-primary hover:bg-shop-primary/90 text-black font-semibold"
                     size="lg"
                   >
                     <ShoppingCart className="mr-2 h-5 w-5" />
@@ -145,11 +145,11 @@ const ProductDetail = () => {
               </>
             )}
             
-            <div className="mt-8 bg-blue-50 p-4 rounded-md flex items-start">
+            <div className="mt-8 bg-shop-secondary-bg/30 p-4 rounded-md flex items-start border border-shop-primary/20">
               <Truck className="h-5 w-5 text-shop-primary mr-3 mt-0.5 flex-shrink-0" />
               <div>
                 <p className="text-shop-text font-medium">Free shipping</p>
-                <p className="text-shop-light-text text-sm mt-1">Orders over $50 qualify for free shipping.</p>
+                <p className="text-shop-light-text opacity-70 text-sm mt-1">Orders over $50 qualify for free shipping.</p>
               </div>
             </div>
           </div>
