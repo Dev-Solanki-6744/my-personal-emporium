@@ -95,9 +95,9 @@ const ProductDetail = () => {
       key: "rzp_test_YOUR_TEST_KEY", // Replace this with your actual Razorpay test key
       amount: priceInINR * quantity * 100, // Amount in paise
       currency: "INR",
-      name: "Your E-Commerce Store", // Replace with your actual store name
+      name: "Dorylus's Design", // Replace with your actual store name
       description: `Purchase of ${product.name} (${quantity} items)`,
-      image: "https://your-logo-url.png", // Replace with your actual logo URL
+      image: "Profile pc.jpg", // Replace with your actual logo URL
       handler: function(response: any) {
         // Handle successful payment
         const paymentId = response.razorpay_payment_id;
