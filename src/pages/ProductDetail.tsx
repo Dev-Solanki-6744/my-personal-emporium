@@ -6,12 +6,20 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/CartContext';
 import { getProductById, getProductsByCategory } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
+import { toast } from 'sonner';
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 
 const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
+  const [isPaymentLoading, setIsPaymentLoading] = useState(false);
   
   const product = getProductById(parseInt(productId || '0'));
   
@@ -55,6 +63,64 @@ const ProductDetail = () => {
       });
     }
   };
+
+  // Function to handle direct payment with Razorpay
+  const handleRazorpayPayment = () => {
+    // Load Razorpay script if not already loaded
+    if (!window.Razorpay) {
+      setIsPaymentLoading(true);
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      script.onload = () => {
+        setIsPaymentLoading(false);
+        initiatePayment();
+      };
+      script.onerror = () => {
+        setIsPaymentLoading(false);
+        toast.error("Failed to load payment gateway. Please try again later.");
+      };
+      document.body.appendChild(script);
+    } else {
+      initiatePayment();
+    }
+  };
+
+  const initiatePayment = () => {
+    const options = {
+      key: "rzp_test_YOUR_TEST_KEY", // Replace with your Razorpay test key when available
+      amount: product.price * quantity * 100, // Amount in paise
+      currency: "INR",
+      name: "Your Store Name",
+      description: `Purchase of ${product.name} (${quantity} items)`,
+      image: "https://your-logo-url.png", // Replace with your logo URL
+      handler: function(response: any) {
+        // This function executes when payment is successful
+        toast.success("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        navigate('/cart');
+      },
+      prefill: {
+        name: "", // Will be filled by customer
+        email: "", // Will be filled by customer
+        contact: "" // Will be filled by customer
+      },
+      notes: {
+        product_id: product.id,
+        quantity: quantity
+      },
+      theme: {
+        color: "#3399cc"
+      }
+    };
+
+    try {
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+    } catch (error) {
+      console.error("Razorpay error:", error);
+      toast.error("Payment initialization failed. Please try again later.");
+    }
+  };
   
   return (
     <div className="container mx-auto px-4 py-8 bg-shop-background">
@@ -95,7 +161,7 @@ const ProductDetail = () => {
               </div>
               
               <div className="mt-6">
-                <span className="text-3xl font-bold text-shop-primary">${product.price.toFixed(2)}</span>
+                <span className="text-3xl font-bold text-shop-primary">₹{(product.price * 83).toFixed(2)}</span>
                 {product.inStock ? (
                   <span className="ml-3 text-sm font-medium text-green-500">In Stock</span>
                 ) : (
@@ -132,14 +198,22 @@ const ProductDetail = () => {
                   </div>
                 </div>
                 
-                <div className="mt-6">
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <Button 
                     onClick={handleAddToCart} 
-                    className="w-full flex items-center justify-center bg-shop-primary hover:bg-shop-primary/90 text-black font-semibold"
+                    className="flex-1 flex items-center justify-center bg-shop-primary hover:bg-shop-primary/90 text-black font-semibold"
                     size="lg"
                   >
                     <ShoppingCart className="mr-2 h-5 w-5" />
                     Add to Cart
+                  </Button>
+                  <Button 
+                    onClick={handleRazorpayPayment}
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center justify-center"
+                    size="lg"
+                    disabled={isPaymentLoading}
+                  >
+                    {isPaymentLoading ? 'Loading...' : 'Buy Now with Razorpay'}
                   </Button>
                 </div>
               </>
@@ -149,7 +223,7 @@ const ProductDetail = () => {
               <Truck className="h-5 w-5 text-shop-primary mr-3 mt-0.5 flex-shrink-0" />
               <div>
                 <p className="text-shop-text font-medium">Free shipping</p>
-                <p className="text-shop-light-text opacity-70 text-sm mt-1">Orders over $50 qualify for free shipping.</p>
+                <p className="text-shop-light-text opacity-70 text-sm mt-1">Orders over ₹4,000 qualify for free shipping.</p>
               </div>
             </div>
           </div>
