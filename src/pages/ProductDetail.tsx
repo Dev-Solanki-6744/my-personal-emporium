@@ -97,7 +97,7 @@ const ProductDetail = () => {
       currency: "INR",
       name: "Dorylus's Design", // Replace with your actual store name
       description: `Purchase of ${product.name} (${quantity} items)`,
-      image: "Profile pc.jpg", // Replace with your actual logo URL
+      image: "public/Profile_pc.jpg", // Replace with your actual logo URL
       handler: function(response: any) {
         // Handle successful payment
         const paymentId = response.razorpay_payment_id;

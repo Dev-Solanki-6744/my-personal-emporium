@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-shop-primary">
-          YourStore
+          Dorylus's Design
         </Link>
         
         {/* Desktop Navigation */}
