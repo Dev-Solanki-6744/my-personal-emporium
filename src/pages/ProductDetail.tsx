@@ -62,6 +62,7 @@ const ProductDetail = () => {
         image: product.image
       });
     }
+    toast.success(`${quantity} ${product.name} added to cart!`);
   };
 
   // Function to handle direct payment with Razorpay
@@ -87,17 +88,48 @@ const ProductDetail = () => {
   };
 
   const initiatePayment = () => {
+    // Convert price to INR (assuming product price is in USD)
+    const priceInINR = Math.round(product.price * 83);
+    
     const options = {
-      key: "rzp_test_YOUR_TEST_KEY", // Replace with your Razorpay test key when available
-      amount: product.price * quantity * 100, // Amount in paise
+      key: "rzp_test_YOUR_TEST_KEY", // Replace this with your actual Razorpay test key
+      amount: priceInINR * quantity * 100, // Amount in paise
       currency: "INR",
-      name: "Your Store Name",
+      name: "Your E-Commerce Store", // Replace with your actual store name
       description: `Purchase of ${product.name} (${quantity} items)`,
-      image: "https://your-logo-url.png", // Replace with your logo URL
+      image: "https://your-logo-url.png", // Replace with your actual logo URL
       handler: function(response: any) {
-        // This function executes when payment is successful
-        toast.success("Payment successful! Payment ID: " + response.razorpay_payment_id);
-        navigate('/cart');
+        // Handle successful payment
+        const paymentId = response.razorpay_payment_id;
+        
+        // Store order info in local storage for order tracking
+        const orderDetails = {
+          orderId: `ORD-${Date.now()}`,
+          paymentId: paymentId,
+          product: product.name,
+          quantity: quantity,
+          totalAmount: priceInINR * quantity,
+          date: new Date().toISOString(),
+          status: 'Paid'
+        };
+        
+        // Store order in local storage for now (in a real app, you would send this to your backend)
+        const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+        existingOrders.push(orderDetails);
+        localStorage.setItem('orders', JSON.stringify(existingOrders));
+        
+        toast.success("Payment successful! Order confirmed.");
+        
+        // Redirect to a success page or order confirmation page
+        setTimeout(() => {
+          navigate('/cart', { 
+            state: { 
+              orderSuccess: true, 
+              orderId: orderDetails.orderId,
+              paymentId: paymentId 
+            }
+          });
+        }, 1500);
       },
       prefill: {
         name: "", // Will be filled by customer
@@ -110,6 +142,11 @@ const ProductDetail = () => {
       },
       theme: {
         color: "#3399cc"
+      },
+      modal: {
+        ondismiss: function() {
+          toast.info("Payment cancelled by user.");
+        }
       }
     };
 
