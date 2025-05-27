@@ -14,7 +14,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   // Server config for development
   server: {
-    host: "::",       // Allows access from local network (e.g., via mobile device)
+    host: "localhost",       // Allows access from local network (e.g., via mobile device)
     port: 8080,       // Runs dev server on http://localhost:8080
   },
 
